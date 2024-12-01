@@ -32,14 +32,12 @@ func ReadInputFile(fileName string) (*[]int64, *[]int64) {
 }
 
 func CountNumber(right *[]int64, target int64) int64 {
-	var count int64 = 0
+	count := make(map[int64]int64)
 
 	for _, num := range *right {
-		if num == target {
-			count++
-		}
+		count[num]++
 	}
-	return count
+	return count[target]
 }
 
 func SolutionPart1(left, right []int64) int {
